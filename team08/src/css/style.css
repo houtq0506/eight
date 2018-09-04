@@ -1,0 +1,21 @@
+footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+}
+
+.iconfont {
+    font-size: 30px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+}
+
+footer a span {
+    display: block;
+    color: #000;
+    margin-top: -1px;
+    font-size: 18px;
+}
