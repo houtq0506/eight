@@ -1,0 +1,1 @@
+$(function(){$.ajax({url:"/api/swiper",dataType:"json",success:function(i){if(1===i.code){var r="";i.msg.forEach(function(i){r+=' <div class="swiper-slide"><img src="img/'+i.url+'" alt=""> </div>'}),$(".swiper-wrapper").html(r),new Swiper(".swiper-container")}}})});
