@@ -42,8 +42,44 @@
             width: 100%;
             height: 100%;
         }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .box {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .header {
+            width: 100%;
+            height: 50px;
+            overflow: hidden;
+        }
+        
+        .header .list {
+            width: 720px;
+            height: 50px;
+            overflow: hidden;
+        }
+        
+        .header .list li {
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            width: 50px;
+            height: 50px;
+            overflow-x: auto;
+        }
+        
+        li.active {
+            border-bottom: red 1px solid;
+            color: red;
+        }
     </style>
-
 </head>
 
 <body>
@@ -52,7 +88,20 @@
     <script src="./js/libs/jquery.min.js"></script>
 
     <div class="box">
-        <header></header>
+        <header class="header">
+            <ul class="list">
+                <li class="active">男装</li>
+                <li>女装</li>
+                <li>婴儿</li>
+                <li>老人</li>
+                <li>裤子</li>
+                <li>衬衫</li>
+                <li>裙子</li>
+                <li>美妆</li>
+                <li>口红</li>
+                <li>头发</li>
+            </ul>
+        </header>
         <section class="main">
             <div class="wrap">
                 <div class="swiper-container">
@@ -106,6 +155,16 @@
         </footer>
     </div>
     <script src="./js/me.js"></script>
+    <script src="./js/libs/better-scroll.js"></script>
+    <script>
+        new BScroll('.header', {
+            scrollX: true
+        });
+        $('.list li').on('click', function() {
+            var ind = $(this).index();
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 var gulp = require('gulp')
 var server = require('gulp-webserver')
 var fs = require('fs')
@@ -67,3 +68,26 @@ gulp.task('dev', gulp.series('minjs', 'server'))
 =======
 gulp.task('dev', gulp.series(['css', 'server']))
 >>>>>>> 04e5e74c3bd86506a0cd279227f663f639aba1a8
+=======
+var gulp = require('gulp');
+var server = require('gulp-webserver');
+var path = require('path');
+var fs = require('fs');
+var url = require('url');
+gulp.task('dev', function() {
+    return gulp.src('src')
+        .pipe(server({
+            port: 8520,
+            open: true,
+            middleware: function(req, res, next) {
+                var pathname = url.parse(req.url).pathname
+                if (pathname === '/favicon.ico') {
+                    res.end('')
+                    return
+                }
+                var pathname = pathname === '/' ? 'index.html' : pathname
+                res.end(fs.readFileSync(path.join(__dirname, 'src', pathname)))
+            }
+        }))
+})
+>>>>>>> e689e1a37ffe3427fccfb09e905c8ed01051424b
